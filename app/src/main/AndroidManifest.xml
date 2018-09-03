@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddSubject"></activity>
+        <activity android:name=".AddSubject"
+            android:label="@string/addsubject"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
