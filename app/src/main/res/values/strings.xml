@@ -11,4 +11,10 @@
     <string name="bunked_text_view">Bunked</string>
     <string name="bucked_classes_edit_text">Bucked classes</string>
     <string name="click_here">Click here</string>
+    <string name="app_logo">app logo</string>
+    <array name="dot_colors">
+        <item>#03A9F4</item>
+        <item>#E65100</item>
+        <item>#FFBB00</item>
+    </array>
 </resources>
