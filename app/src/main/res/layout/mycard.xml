@@ -8,57 +8,130 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardElevation="2dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="4dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="166dp"
-            android:layout_height="35dp"
-            android:textSize="20sp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:text="@string/subject_name" />
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorAccent" />
 
-        <TextView
-            android:id="@+id/total_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="33dp"
-            android:layout_marginTop="75dp"
-            android:text="@string/total_text_view" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/color"
+                android:layout_marginStart="86dp"
+                android:text="@string/subject_name"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/bunked_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/total_text_view"
-            android:layout_marginBottom="46dp"
-            android:text="@string/bunked_text_view" />
+            <Button
+                android:layout_width="44dp"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/color"
+                android:layout_marginEnd="10dp"
+                android:text="@string/delete" />
 
-        <TextView
-            android:id="@+id/total_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/total_text_view"
-            android:layout_centerHorizontal="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:text="@string/total_text_view"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/bunked_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bunked_text"
-            android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/plus_total"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="97dp"
+                android:text="@string/plus_symbol" />
+
+            <TextView
+                android:id="@+id/total_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="166dp"
+                android:text="@string/zero"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/minus_total"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="133dp"
+                android:text="@string/minus"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/bunk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/color"
+                android:layout_marginBottom="29dp"
+                android:text="@string/bunked_text_view"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/plus_bunk"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignStart="@+id/plus_total"
+                android:layout_alignTop="@+id/bunk_text"
+                android:text="@string/plus_symbol"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/bunked_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/total_num"
+                android:layout_alignTop="@+id/bunk_text"
+                android:text="@string/zero"
+                android:textSize="20sp" />
+
+            <Button
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignStart="@+id/minus_total"
+                android:layout_alignTop="@+id/bunk_text"
+                android:text="@string/minus"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="49dp"
+                android:layout_marginEnd="18dp"
+                android:text="@string/percentage"
+                android:textSize="30sp" />
+
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

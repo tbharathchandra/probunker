@@ -33,9 +33,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         String name = mCursor.getString(mCursor.getColumnIndex("NAME"));
         int total = mCursor.getInt(mCursor.getColumnIndex("TOTAL"));
         int bunked = mCursor.getInt(mCursor.getColumnIndex("BUNK"));
+        int color = mCursor.getInt(mCursor.getColumnIndex("COLOR"));
         holder.nameText.setText(name);
         holder.totalText.setText(Integer.toString(total));
         holder.bunkedText.setText(Integer.toString(bunked));
+        holder.colorText.setBackgroundColor(color);
     }
 
     @Override
@@ -47,11 +49,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         public TextView nameText;
         public TextView totalText;
         public TextView bunkedText;
+        public TextView colorText;
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
             nameText= itemView.findViewById(R.id.name);
             totalText = itemView.findViewById(R.id.total_num);
             bunkedText = itemView.findViewById(R.id.bunked_num);
+            colorText= itemView.findViewById(R.id.color);
         }
     }
     public void swapCursor(Cursor newCursor){

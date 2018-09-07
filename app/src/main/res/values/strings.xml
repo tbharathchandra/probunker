@@ -12,6 +12,11 @@
     <string name="bucked_classes_edit_text">Bucked classes</string>
     <string name="click_here">Click here</string>
     <string name="app_logo">app logo</string>
+    <string name="delete">D</string>
+    <string name="plus_symbol">+</string>
+    <string name="zero">0</string>
+    <string name="minus">-</string>
+    <string name="percentage">percent</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>
