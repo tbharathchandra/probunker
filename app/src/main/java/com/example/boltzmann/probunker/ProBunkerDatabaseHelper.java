@@ -18,7 +18,8 @@ public class ProBunkerDatabaseHelper extends SQLiteOpenHelper {
              +"NAME TEXT,"
              +"TOTAL INTEGER,"
              +"BUNK INTEGER,"
-             +"COLOR INTEGER);");
+             +"COLOR INTEGER,"
+             +"PERCENT REAL);");
     }
 
     @Override

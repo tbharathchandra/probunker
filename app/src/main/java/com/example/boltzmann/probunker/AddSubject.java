@@ -23,6 +23,7 @@ public class AddSubject extends AppCompatActivity {
     private String name;
     private int total;
     private int bunked;
+    private float percent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +50,15 @@ public class AddSubject extends AppCompatActivity {
                 name = Name.getText().toString();
                 total = Integer.parseInt(Total.getText().toString().trim());
                 bunked = Integer.parseInt(Bunked.getText().toString().trim());
-                insertData();
-                Intent intent = new Intent(AddSubject.this,MainActivity.class);
-                startActivity(intent);
+                if(!(total>=bunked)){
+                    Toast toast = Toast.makeText(AddSubject.this,"Bunked classes should be less than or equal to total try again",Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+
+                    insertData();
+                    Intent intent = new Intent(AddSubject.this,MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -75,12 +82,14 @@ public class AddSubject extends AppCompatActivity {
     public void insertData(){
         SQLiteOpenHelper proBunkerDatabaseHelper = new ProBunkerDatabaseHelper(AddSubject.this);
         try{
+            percent =(float) ((total-bunked)*100)/total;
             SQLiteDatabase db = proBunkerDatabaseHelper.getWritableDatabase();
             ContentValues studentValues = new ContentValues();
             studentValues.put("NAME",name);
             studentValues.put("TOTAL",total);
             studentValues.put("BUNK",bunked);
             studentValues.put("COLOR",mDefalutColor);
+            studentValues.put("PERCENT",percent);
             db.insert("MYTABLE",null,studentValues);
             db.close();
         }catch (SQLiteException e){

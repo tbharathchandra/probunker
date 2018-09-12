@@ -37,44 +37,63 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void plusTotalOnClick(int id, long adapterpos) {
-                Cursor data = db.query("MYTABLE",new String[]{"TOTAL"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
+                Cursor data = db.query("MYTABLE",new String[]{"TOTAL","BUNK"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
                 data.moveToFirst();
                 int total = data.getInt(data.getColumnIndex("TOTAL"));
+                int bunk = data.getInt(data.getColumnIndex("BUNK"));
                 total=total+1;
-                ContentValues values = new ContentValues();
-                values.put("TOTAL",total);
-                db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
-                data.close();
-                mAdapter.swapCursor(getCursor());
+
+                    float percent =(float) ((total-bunk)*100)/total;
+                    try{
+                        ContentValues values = new ContentValues();
+                        values.put("TOTAL",total);
+                        values.put("PERCENT",percent);
+                        db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
+                        data.close();
+
+                    }catch(SQLiteException e){
+                        Toast toast = Toast.makeText(MainActivity.this,"unable to access database plz try after restarting the app",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    mAdapter.swapCursor(getCursor());
             }
 
             @Override
             public void minusTotalOnClick(int id, long adapterpos) {
-                Cursor data = db.query("MYTABLE",new String[]{"TOTAL"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
+                Cursor data = db.query("MYTABLE",new String[]{"TOTAL","BUNK"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
                 data.moveToFirst();
                 int total = data.getInt(data.getColumnIndex("TOTAL"));
-                if(total>0){
-                    total=total-1;
-                    ContentValues values = new ContentValues();
-                    values.put("TOTAL",total);
-                    db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
-                    data.close();
+                int bunk = data.getInt(data.getColumnIndex("BUNK"));
+                total=total-1;
+
+                    float percent =(float) ((total-bunk)*100)/total;
+                   try{
+                       ContentValues values = new ContentValues();
+                       values.put("TOTAL",total);
+                       values.put("PERCENT",percent);
+                       db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
+                       data.close();
+
+                   }catch(SQLiteException e){
+                       Toast toast = Toast.makeText(MainActivity.this,"unable to access database plz try after restarting the app",Toast.LENGTH_SHORT);
+                       toast.show();
+                    }
                     mAdapter.swapCursor(getCursor());
-                }else{
-                    Toast toast =Toast.makeText(MainActivity.this,"total classes are already zero",Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                
 
             }
 
             @Override
             public void plusBunkOnClick(int id, long adapterpos) {
-                Cursor data = db.query("MYTABLE",new String[]{"BUNK"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
+                Cursor data = db.query("MYTABLE",new String[]{"BUNK","TOTAL"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
                 data.moveToFirst();
                 int bunk = data.getInt(data.getColumnIndex("BUNK"));
+                int total = data.getInt(data.getColumnIndex("TOTAL"));
                 bunk = bunk+1;
+                float percent =(float) ((total-bunk)*100)/total;
                 ContentValues values = new ContentValues();
                 values.put("BUNK",bunk);
+                values.put("PERCENT",percent);
                 db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
                 data.close();
                 mAdapter.swapCursor(getCursor());
@@ -82,20 +101,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void minusBunkOnClick(int id, long adapterpos) {
-                Cursor data = db.query("MYTABLE",new String[]{"BUNK"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
+                Cursor data = db.query("MYTABLE",new String[]{"BUNK","TOTAL"},"_id=?",new String[]{Integer.toString(id)},null,null,null);
                 data.moveToFirst();
                 int bunk = data.getInt(data.getColumnIndex("BUNK"));
-                if(bunk>0){
-                    bunk = bunk-1;
-                    ContentValues values = new ContentValues();
-                    values.put("BUNK",bunk);
-                    db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
-                    data.close();
-                    mAdapter.swapCursor(getCursor());
-                }else{
-                    Toast toast = Toast.makeText(MainActivity.this,"buked classes are already zero",Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                int total = data.getInt(data.getColumnIndex("TOTAL"));
+                bunk = bunk-1;
+                float percent =(float) ((total-bunk)*100)/total;
+                ContentValues values = new ContentValues();
+                values.put("BUNK",bunk);
+                values.put("PERCENT",percent);
+                db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
+                data.close();
+                mAdapter.swapCursor(getCursor());
             }
         });
         recyclerView.setAdapter(mAdapter);
