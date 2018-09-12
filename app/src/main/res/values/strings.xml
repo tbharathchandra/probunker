@@ -17,6 +17,8 @@
     <string name="zero">0</string>
     <string name="minus">-</string>
     <string name="percentage">percent</string>
+    <string name="report">Your report</string>
+    <string name="charts">charts</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>

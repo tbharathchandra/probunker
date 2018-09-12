@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/open_charts"
+        android:title="@string/charts"
+        android:icon="@drawable/ic_insert_chart_black_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+</menu>

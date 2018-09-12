@@ -40,12 +40,12 @@
 
             <Button
                 android:id="@+id/delete"
+                android:background="@drawable/ic_delete_black_24dp"
                 android:layout_width="44dp"
                 android:layout_height="37dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/color"
-                android:layout_marginEnd="10dp"
-                android:text="@string/delete" />
+                android:layout_marginEnd="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,12 +58,12 @@
 
             <Button
                 android:id="@+id/plus_total"
+                android:background="@drawable/plus"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="97dp"
-                android:text="@string/plus_symbol" />
+                android:layout_marginStart="97dp" />
 
             <TextView
                 android:id="@+id/total_num"
@@ -82,7 +82,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="133dp"
-                android:text="@string/minus"
+                android:background="@drawable/minus"
                 android:textSize="20sp" />
 
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_height="37dp"
                 android:layout_alignStart="@+id/plus_total"
                 android:layout_alignTop="@+id/bunk_text"
-                android:text="@string/plus_symbol"
+                android:background="@drawable/plus"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -118,9 +118,9 @@
                 android:id="@+id/minus_bunk"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
+                android:background="@drawable/minus"
                 android:layout_alignStart="@+id/minus_total"
                 android:layout_alignTop="@+id/bunk_text"
-                android:text="@string/minus"
                 android:textSize="20sp" />
 
             <TextView
