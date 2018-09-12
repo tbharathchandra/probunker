@@ -21,6 +21,9 @@
         android:background="#9acd32">
 
         <TextView
+            android:text="@string/addsubject"
+            android:textAlignment="center"
+            android:textSize="35sp"
             android:background="@drawable/rounded_textview"
             android:id="@+id/total_percent"
             android:layout_width="150dp"

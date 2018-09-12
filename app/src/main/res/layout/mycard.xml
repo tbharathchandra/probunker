@@ -79,9 +79,8 @@
                 android:id="@+id/minus_total"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
-                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/minus_bunk"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="133dp"
                 android:background="@drawable/minus"
                 android:textSize="20sp" />
 
@@ -118,9 +117,11 @@
                 android:id="@+id/minus_bunk"
                 android:layout_width="37dp"
                 android:layout_height="37dp"
-                android:background="@drawable/minus"
-                android:layout_alignStart="@+id/minus_total"
+
+                android:layout_alignParentEnd="true"
                 android:layout_alignTop="@+id/bunk_text"
+                android:layout_marginEnd="140dp"
+                android:background="@drawable/minus"
                 android:textSize="20sp" />
 
             <TextView
