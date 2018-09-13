@@ -210,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
             totalPercent.setTextSize(40);
             total.close();}else{
                 totalPercent.setText("Add subjects");
+                totalPercent.setTextSize(20);
 
             }
         }catch (SQLiteException e){

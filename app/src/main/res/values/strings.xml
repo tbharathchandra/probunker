@@ -19,6 +19,7 @@
     <string name="percentage">percent</string>
     <string name="report">Your report</string>
     <string name="charts">charts</string>
+    <string name="total_percentage">Total percentage</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>
