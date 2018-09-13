@@ -39,7 +39,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         int color = mCursor.getInt(mCursor.getColumnIndex("COLOR"));
         int id= mCursor.getInt(mCursor.getColumnIndex("_id"));
         float percent = mCursor.getFloat(mCursor.getColumnIndex("PERCENT"));
-        String percentage = String.format("%.2f",percent);
+        String percentage = String.format("%.2f",percent)+"%";
         holder.percent.setText(percentage);
         holder.nameText.setText(name);
         holder.totalText.setText(Integer.toString(total));

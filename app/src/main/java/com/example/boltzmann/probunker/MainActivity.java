@@ -18,20 +18,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     private CardAdapter mAdapter;
+    private TextView totalPercent;
+    private int sumTotal;
+    private int sumBunked;
+    private Cursor total;
+    private LinearLayout mylaout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        totalPercent = findViewById(R.id.total_percent);
+        mylaout = findViewById(R.id.total);
         SQLiteOpenHelper proBunkerDatabaseHelper = new ProBunkerDatabaseHelper(this);
         db = proBunkerDatabaseHelper.getWritableDatabase();
+        setPercentage();
         RecyclerView recyclerView =  findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new CardAdapter(this, getCursor(), new CardAdapter.butttonsAdapetrListener() {
@@ -61,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                         toast.show();
                     }
                     mAdapter.swapCursor(getCursor());
+                    data.close();
+                    setPercentage();
             }
 
             @Override
@@ -84,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
                        toast.show();
                     }
                     mAdapter.swapCursor(getCursor());
-
+                   data.close();
+                    setPercentage();
 
             }
 
@@ -102,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
                 data.close();
                 mAdapter.swapCursor(getCursor());
+                data.close();
+                setPercentage();
             }
 
             @Override
@@ -118,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 db.update("MYTABLE",values,"_id=?",new String[]{Integer.toString(id)});
                 data.close();
                 mAdapter.swapCursor(getCursor());
+                data.close();
+                setPercentage();
             }
         });
         recyclerView.setAdapter(mAdapter);
@@ -162,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         db.delete("MYTABLE","_id="+id,null);
                         mAdapter.swapCursor(getCursor());
+                        setPercentage();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -173,5 +190,32 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = a_builder.create();
         alert.setTitle("Alert!!");
         alert.show();
+    }
+    public void setPercentage(){
+        sumTotal=0;
+        sumBunked=0;
+        try{
+            total = db.query("MYTABLE",new String[]{"TOTAL","BUNK"},null,null,null,null,null);
+            if(total!=null&&total.moveToFirst()){
+
+            do{
+                int singleTotal = total.getInt(total.getColumnIndex("TOTAL"));
+                int singleBunk = total.getInt(total.getColumnIndex("BUNK"));
+                sumTotal = sumTotal+singleTotal;
+                sumBunked = sumBunked+singleBunk;
+            }while(total.moveToNext());
+            float myPercent = (float) ((sumTotal-sumBunked)*100)/sumTotal;
+            String percentage = String.format("%.2f",myPercent)+"%";
+            totalPercent.setText(percentage);
+            totalPercent.setTextSize(40);
+            total.close();}else{
+                totalPercent.setText("Add subjects");
+
+            }
+        }catch (SQLiteException e){
+            Toast toast =Toast.makeText(MainActivity.this,"unable to access database, try restarting app",Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
     }
 }
