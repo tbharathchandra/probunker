@@ -21,9 +21,14 @@
     <string name="charts">charts</string>
     <string name="total_percentage">Total percentage</string>
     <string name="your_attendance_analysis">Your Attendance Analysis</string>
-    <string name="number_of_bunks_available_for">Number of bunks available for</string>
+    <string name="number_of_bunks_available_for">Number of safe bunks available</string>
     <string name="_75">75%</string>
     <string name="change_above_value_for_percentage_values">change above value for percentage values</string>
+    <string name="including_all_subjects">Including all subjects</string>
+    <string name="for_65">For 65%</string>
+    <string name="number">number</string>
+    <string name="for_75">For 75%</string>
+    <string name="select_subject">Select a subject</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>
