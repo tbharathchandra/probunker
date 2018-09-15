@@ -36,7 +36,7 @@ public class StatsActivity extends AppCompatActivity {
         mchart = findViewById(R.id.chart);
         mchart.getDescription().setEnabled(false);
         setData();
-        
+
     }
     private void setData(){
         ArrayList<BarEntry> yVals = new ArrayList<>();
