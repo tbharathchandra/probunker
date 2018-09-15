@@ -31,6 +31,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".StatsActivity"
             android:label="@string/report"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"/>
     </application>
 

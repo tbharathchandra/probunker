@@ -20,6 +20,7 @@
     <string name="report">Your report</string>
     <string name="charts">charts</string>
     <string name="total_percentage">Total percentage</string>
+    <string name="your_attendance_analysis">Your Attendance Analysis</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>
