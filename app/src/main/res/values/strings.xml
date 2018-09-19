@@ -29,6 +29,9 @@
     <string name="number">number</string>
     <string name="for_75">For 75%</string>
     <string name="select_subject">Select a subject</string>
+    <string name="about_us">About Us</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="share">Share</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>

@@ -171,6 +171,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,StatsActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.open_about :
+                Intent intent2 = new Intent(MainActivity.this,AboutUsActivity.class);
+                startActivity(intent2);
+                return true;
+            case R.id.open_licenses :
+                Intent intent3 = new Intent(MainActivity.this,ExternalLibraries.class);
+                startActivity(intent3);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

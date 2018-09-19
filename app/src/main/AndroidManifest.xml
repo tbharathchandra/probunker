@@ -37,7 +37,14 @@
             android:label="@string/report"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".AboutUsActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/about_us"/>
+        <activity android:name=".ExternalLibraries"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/open_source_licenses"/>
     </application>
 
 </manifest>

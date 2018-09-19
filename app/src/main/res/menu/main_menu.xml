@@ -6,5 +6,17 @@
         android:icon="@drawable/ic_insert_chart_black_24dp"
         android:orderInCategory="1"
         app:showAsAction="always"/>
-    
+    <item android:id="@+id/open_about"
+        android:title="@string/about_us"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+    <item android:id="@+id/open_licenses"
+        android:title="@string/open_source_licenses"
+        android:orderInCategory="3"
+        app:showAsAction="never"/>
+    <item android:title="@string/share"
+        android:id="@+id/share"
+        android:orderInCategory="5"
+        android:icon="@drawable/share"
+        app:showAsAction="ifRoom"/>
 </menu>
