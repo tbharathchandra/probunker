@@ -10,19 +10,8 @@ public class SlapshActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_slapsh);
-        Thread background = new Thread() {
-          public void run(){
-              try{
-                    sleep(3000);
-                    Intent i = new Intent(SlapshActivity.this,MainActivity.class);
-                    startActivity(i);
-                    finish();
-              }catch (Exception e){
-
-              }
-          }
-        };
-        background.start();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

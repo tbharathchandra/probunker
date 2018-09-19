@@ -17,10 +17,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase db;
@@ -29,15 +31,23 @@ public class MainActivity extends AppCompatActivity {
     private int sumTotal;
     private int sumBunked;
     private Cursor total;
-    private LinearLayout mylaout;
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        mAdView = (AdView) findViewById(R.id.ad1);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("03FDF9C1F3691D99070BA570B8DEBB21").build();
+        mAdView.loadAd(adRequest);
+        mAdView.bringToFront();
+
         totalPercent = findViewById(R.id.total_percent);
-        mylaout = findViewById(R.id.total);
         SQLiteOpenHelper proBunkerDatabaseHelper = new ProBunkerDatabaseHelper(this);
         db = proBunkerDatabaseHelper.getWritableDatabase();
         setPercentage();

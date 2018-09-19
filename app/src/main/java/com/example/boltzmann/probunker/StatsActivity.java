@@ -26,6 +26,9 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,7 @@ public class StatsActivity extends AppCompatActivity {
     private BarChart mchart;
     private TextView all65;
     private TextView all75;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,11 @@ public class StatsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        mAdView = (AdView) findViewById(R.id.ad2);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("03FDF9C1F3691D99070BA570B8DEBB21").build();
+        mAdView.loadAd(adRequest);
 
         SQLiteOpenHelper proBunkerDatabaseHelper = new ProBunkerDatabaseHelper(this);
         db =proBunkerDatabaseHelper.getReadableDatabase();
@@ -105,7 +114,7 @@ public class StatsActivity extends AppCompatActivity {
     }
     private int forN(int total,int bunked,float N){
         int attended = total-bunked;
-        return (int) (attended-(N*total));
+        return (int) ((attended/N)-total-2);
     }
     private void setAllBunks(){
         int total=0;
