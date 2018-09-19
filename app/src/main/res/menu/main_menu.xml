@@ -6,4 +6,5 @@
         android:icon="@drawable/ic_insert_chart_black_24dp"
         android:orderInCategory="1"
         app:showAsAction="always"/>
+    
 </menu>
