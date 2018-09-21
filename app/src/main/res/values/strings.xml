@@ -22,9 +22,9 @@
     <string name="total_percentage">Total percentage</string>
     <string name="your_attendance_analysis">Your Attendance Analysis</string>
     <string name="number_of_bunks_available_for">Number of safe bunks available</string>
-    <string name="_75">75%</string>
+    <string name="_75">75</string>
     <string name="change_above_value_for_percentage_values">change above value for percentage values</string>
-    <string name="including_all_subjects">Including all subjects</string>
+    <string name="including_all_subjects">Including all subjects :</string>
     <string name="for_65">For 65%</string>
     <string name="number">number</string>
     <string name="for_75">For 75%</string>
@@ -32,6 +32,11 @@
     <string name="about_us">About Us</string>
     <string name="open_source_licenses">Open source licenses</string>
     <string name="share">Share</string>
+    <string name="enter_the_minimum_percentage">Enter the minimum percentage required</string>
+    <string name="calculate">Calculate</string>
+    <string name="symbol">%</string>
+    <string name="for_invidual_subjects">For individual subjects :</string>
+    <string name="_name">Subject</string>
     <array name="dot_colors">
         <item>#03A9F4</item>
         <item>#E65100</item>

@@ -5,13 +5,19 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".StatsActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/toolbar_main"
+            android:id="@+id/toolbar_stats"/>
 <LinearLayout
+    android:layout_below="@id/toolbar_stats"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="40dp">
 
-    <include layout="@layout/toolbar_main"
-        android:id="@+id/toolbar_stats"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,72 +44,93 @@
         android:text="@string/number_of_bunks_available_for"
         android:textColor="#000000"
         android:textSize="30sp"/>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_the_minimum_percentage"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="7dp">
+    <EditText
+        android:id="@+id/min_percent"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="@string/_75"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/symbol"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="3dp"/>
+        <Button
+            android:id="@+id/save_min_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:layout_marginStart="50dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/including_all_subjects"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="7dp"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:textColor="#000000"/>
+        <TextView
+            android:text="@string/zero"
+            android:id="@+id/total_bunks_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+    </LinearLayout>
+    <TextView
+        android:textSize="20sp"
         android:textColor="#000000"
-        android:textSize="20sp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:text="@string/for_65"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/all_65"
-            android:layout_marginStart="25dp"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:hint="@string/number"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:text="@string/for_75"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/all_75"
-            android:layout_marginStart="25dp"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:hint="@string/number"/>
-    </LinearLayout>
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/ad2"
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:layout_gravity="center_horizontal"
+        android:text="@string/for_invidual_subjects"
+        android:layout_marginStart="30dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_stats"
+        android:layout_margin="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/ad2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+    </RelativeLayout>
 </ScrollView>
