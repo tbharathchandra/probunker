@@ -178,6 +178,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(MainActivity.this,ExternalLibraries.class);
                 startActivity(intent3);
                 return true;
+            case R.id.share :
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"I am using ProBunker app and it is just awesome.., try using it");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
