@@ -1,6 +1,7 @@
 package com.example.boltzmann.probunker;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,9 +52,14 @@ public class AddSubject extends AppCompatActivity {
                 EditText Name = findViewById(R.id.editText);
                 EditText Total = findViewById(R.id.editText2);
                 EditText Bunked = findViewById(R.id.editText3);
+                try{
                 name = Name.getText().toString();
                 total = Integer.parseInt(Total.getText().toString().trim());
-                bunked = Integer.parseInt(Bunked.getText().toString().trim());
+                bunked = Integer.parseInt(Bunked.getText().toString().trim());}catch (NumberFormatException e){
+                    Toast toast = Toast.makeText(AddSubject.this,"Enter valid data",Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
                 if(!(total>=bunked)){
                     Toast toast = Toast.makeText(AddSubject.this,"Bunked classes should be less than or equal to total try again",Toast.LENGTH_SHORT);
                     toast.show();
