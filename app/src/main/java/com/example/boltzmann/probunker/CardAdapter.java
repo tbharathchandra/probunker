@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
+    private int pos;
     private Context mContext;
     private Cursor mCursor;
     private butttonsAdapetrListener mlistener;
@@ -33,7 +34,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         if(!mCursor.moveToPosition(position)){
             return;
         }
-        String name = mCursor.getString(mCursor.getColumnIndex("NAME"));
+        String name = mCursor.getString(mCursor.getColumnIndex("NAME")).trim();
         int total = mCursor.getInt(mCursor.getColumnIndex("TOTAL"));
         int bunked = mCursor.getInt(mCursor.getColumnIndex("BUNK"));
         int color = mCursor.getInt(mCursor.getColumnIndex("COLOR"));
@@ -44,12 +45,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.nameText.setText(name);
         holder.totalText.setText(Integer.toString(total));
         holder.bunkedText.setText(Integer.toString(bunked));
+        String firstAlpha = name.substring(0,1).toUpperCase();
         holder.colorText.setBackgroundColor(color);
+        holder.colorText.setText(firstAlpha);
         holder.delete.setTag(id);
         holder.plusTotal.setTag(id);
         holder.plusBunk.setTag(id);
         holder.minusTotal.setTag(id);
         holder.minusBunk.setTag(id);
+        pos=position;
     }
 
     @Override
@@ -131,6 +135,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         mCursor=newCursor;
         if(newCursor!=null){
             notifyDataSetChanged();
+            notifyItemRemoved(pos);
         }
     }
 

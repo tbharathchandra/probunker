@@ -60,6 +60,11 @@ public class AddSubject extends AppCompatActivity {
                     toast.show();
                     return;
                 }
+                if(total==0){
+                    Toast toast = Toast.makeText(AddSubject.this,"Enter total value greater than zero",Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
                 if(!(total>=bunked)){
                     Toast toast = Toast.makeText(AddSubject.this,"Bunked classes should be less than or equal to total try again",Toast.LENGTH_SHORT);
                     toast.show();
